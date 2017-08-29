@@ -1,0 +1,31 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:a4j="http://richfaces.org/a4j" xmlns:p="http://primefaces.org/ui"
+                template="/layout/parrent/template.xhtml">
+    <ui:insert name="metadata"/>
+    <ui:define name="formContent">
+        <h:form id="l">
+            <center>
+                <div class="loginPanel">
+                    <div class="logopanel">
+                        <p>#{strings['logoText']}</p>
+                    </div>
+                    <a4j:outputPanel id="loginPanel" ajaxRendered="true">
+                        <h:inputText value="#{login.login}" id="login" type="email" styleClass="inputAutorize" placeholder="#{strings['loginPlaceholder']}">
+                            <rich:message for="login"/>
+                        </h:inputText>
+                        <h:inputText value="#{login.password}" id="pass" type="password" styleClass="inputAutorize" placeholder="#{strings['passPlaceholder']}">
+                            <rich:message for="pass"/>
+                        </h:inputText>
+                        <a4j:commandButton type="submit" id="myLoginButton" action="#{login.doSign}" styleClass="loginButton" class="loginButton" style="background-color: #009688;" value="#{strings['autorize']}"/>
+                    </a4j:outputPanel>
+                </div>
+            </center>
+        </h:form>
+    </ui:define>
+    <ui:define name="addContent">
+
+    </ui:define>
+</ui:composition>
