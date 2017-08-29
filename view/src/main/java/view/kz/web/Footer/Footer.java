@@ -13,7 +13,6 @@ import java.util.List;
 @ViewScoped
 public class Footer {
     List<Menu> footerPanel = new ArrayList<>();
-    Style style = new Style();
 
     public List<Menu> getFooterPanels(){
         footerPanel.clear();
@@ -22,37 +21,25 @@ public class Footer {
         m.getMenuItems().add(new Item("Портал Казату","http://portal.kazatu.kz/",""));
         m.getMenuItems().add(new Item("КазАТУ","http://kazatu.kz/",""));
         m.getMenuItems().add(new Item("Платонус","http://platonus.kazatu.kz/",""));
+        m.setStyleClass("col-sm-3");
         footerPanel.add(m);
         m = new Menu(BundleManager.getInterface("footerPanel2Title"));
         m.getMenuItems().add(new Item("О нас","http://vtipo.ru/","ads"));
+        m.setStyleClass("col-sm-3");
         footerPanel.add(m);
         m = new Menu(BundleManager.getInterface("footerPanel3Title"));
         m.getMenuItems().add(new Item("+7 707 1050996","#phone",""));
         m.getMenuItems().add(new Item("+7 777 7777777","#phone",""));
+        m.setStyleClass("col-sm-3");
         footerPanel.add(m);
         m = new Menu(BundleManager.getInterface("footerPanel4Title"));
         m.getMenuItems().add(new Item("Что это за Сайт","#site",""));
         m.getMenuItems().add(new Item("История построении комании","#history",""));
         m.getMenuItems().add(new Item("Наши партнеры","#pattern",""));
         m.getMenuItems().add(new Item("Спонсоры","#sponsor",""));
+        m.setStyleClass("col-sm-3");
         footerPanel.add(m);
 
         return footerPanel;
-    }
-    public Style getStyle() {
-        return style;
-    }
-    public class Style{
-
-        private String panelWidth;
-
-        public String getPanelWidth() {
-            panelWidth = (100/footerPanel.size())+"%";
-            return panelWidth;
-        }
-
-        public void setPanelWidth(String panelWidth) {
-            this.panelWidth = panelWidth;
-        }
     }
 }

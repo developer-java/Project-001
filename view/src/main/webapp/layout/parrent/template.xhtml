@@ -1,34 +1,58 @@
 <f:view xmlns="http://www.w3.org/1999/xhtml"
         xmlns:ui="http://java.sun.com/jsf/facelets"
         xmlns:f="http://java.sun.com/jsf/core"
-        xmlns:a4j="http://richfaces.org/a4j" xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:a4j="http://richfaces.org/a4j"
+        xmlns:h="http://java.sun.com/jsf/html"
         >
     <h:head>
         <title>TEMPLATE</title>
-        <link rel="stylesheet" type="text/css" href="resources/styles/footer.css"/>
-        <link rel="stylesheet" type="text/css" href="resources/styles/main.css"/>
+        <link rel="stylesheet" type="text/css" href="#{pageContext.request.contextPath}resources/styles/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="#{pageContext.request.contextPath}resources/styles/main.css"/>
+        <link rel="stylesheet" type="text/css" href="#{pageContext.request.contextPath}resources/styles/footer.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <style>
+            body{
+                background-image: url(../../resources/img/item1.jpg); background-size: 100%; background-position: bottom;
+            }
+        </style>
     </h:head>
+
     <h:body>
+       <div class="navbar navbar-default navbar-fixed-top" style="background-color: rgba(0,0,0,0); border-bottom: 0;">
+           <div class="container">
+               <div class="navbar-header">
+                   <a class="navbar-brand" href="/">MAGJAN</a>
+               </div>
+               <div class="navbar-collapse collapse" id="navbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+               </div>
+           </div>
+       </div>
         <ui:insert name="formContent"/>
         <ui:insert name="addContent"/>
-        <div class="footerPanel">
-            <center>
-                <div class="footerContent" style="width: 980px; height: 100px;">
-                    <ui:repeat value="#{footer.footerPanels}" var="panel">
-                        <div style="float:left;width: #{footer.style.panelWidth};">
-                            <h4 style="text-align: left;width: 100%; color: #ccc">#{panel.title}</h4>
-                            <ui:repeat value="#{panel.menuItems}" var="item">
-                                <div style="width: 100%;">
-                                    <a href="#{item.link}" style="float: left; text-align: left; width: 100%">
-                                        <h:outputText value="#{item.text}" style="width: 100%;"/>
-                                    </a>
-                                </div>
-                            </ui:repeat>
-                        </div>
-                    </ui:repeat>
-                </div>
-            </center>
+        <div class="container footer">
+            <div class="row">
+                <ui:repeat value="#{footer.footerPanels}" var="panel">
+                    <div class="#{panel.styleClass}">
+                        <h4 style="text-align: left;width: 100%; color: #ccc">#{panel.title}</h4>
+                        <ui:repeat value="#{panel.menuItems}" var="item">
+                            <div style="width: 100%;" class="links">
+                                <a href="#{item.link}">
+                                    <h:outputText value="#{item.text}" styleClass="requestLink"/>
+                                </a>
+                            </div>
+                        </ui:repeat>
+                    </div>
+                </ui:repeat>
+            </div>
         </div>
+        <script src="../../resources/scripts/bootstrap.min.js"></script>
+        <script src="../../resources/scripts/jquery-3.2.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </h:body>
 </f:view>

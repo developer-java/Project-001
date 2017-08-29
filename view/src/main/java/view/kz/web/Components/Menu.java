@@ -7,10 +7,19 @@ public class Menu {
 
     private List<Item> menuItems;
     private String title;
+    private String styleClass;
 
     public Menu(String title) {
         this.menuItems = new ArrayList<>();
         this.title = title;
+    }
+
+    public String getStyleClass() {
+        return styleClass;
+    }
+
+    public void setStyleClass(String styleClass) {
+        this.styleClass = styleClass;
     }
 
     public List<Item> getMenuItems() {
@@ -28,4 +37,5 @@ public class Menu {
     public void setTitle(String title) {
         this.title = title;
     }
+
 }

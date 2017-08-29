@@ -12,7 +12,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
-public class Login {
+public class AutorizationModel {
     public static final String DEFAULT_PAGE = "/form/service.xhtml";
     @EJB
     private UserManagment userManagment;

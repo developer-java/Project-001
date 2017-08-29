@@ -7,8 +7,8 @@ import java.util.ResourceBundle;
 public class BundleManager {
 
     public static final String LOCALE_NAME_RU = "ru";
-//    public static final String LOCALE_NAME_KK = "kaz";
-//    public static final String LOCALE_NAME_EN = "eng";
+    public static final String LOCALE_NAME_KK = "kaz";
+    public static final String LOCALE_NAME_EN = "eng";
 
     public static String getInterface(String key){
         return ResourceBundle.getBundle("bundle/strings", FacesContext.getCurrentInstance().getViewRoot().getLocale()).getString(key);

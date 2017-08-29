@@ -3,47 +3,61 @@
     padding: 0;
 }
 body{
-    background-color: #f6faff;
+    background-color: #FFB74D;
 }
 .loginPanel{
     width: 400px;
     height: 240px;
-    margin-top: 200px;
-    box-shadow: 0 10px 15px #ccc;
-    border: 1px solid #ccc;
-    background-color: white;
 }
-.inputAutorize{
-    width: 80%;
-    margin-top: 5px;
-    height: 30px;
-    padding-left: 16px;
-    text-align: left;
-    border: 1px solid #ccc;
-    border-radius: 0px;
+.linkPanel{
+    width: 100%;
+    float: left;
+    display: block;
 }
-.logopanel{
-    width: 80%;
-    height: 120px;
+.requestLink{
+    font-size: 14px;
+    color: #fff;
+    font-weight: 400;
+    text-align: center;
 }
-.logopanel p {
-    font-size: 50px;
-    color: #ccc;
-    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-    font-weight: 800;
+.requestLink:hover{
+    color: #0092ff;
+    text-decoration: underline;
 }
-.loginButton{
-    margin-top: 5px;
-    border-radius: 5px;
-    bottom: 16px;
-    width: 80%;
-    height: 30px;
+.title3{
     color: white;
     font-weight: 700;
-    border: none;
-    background-size: 100%;
-    background-color: #009688;
+    font-size: 26px;
+    width: 100%;
 }
-.loginButton{
-    border: none;
+.footer{
+    background-color: rgba(0,0,0,.3);
+    color: white;
+    width: 100%;
+}
+.request-item{
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin:10px;
+    box-shadow: 0 10px 15px #000;
+}
+.request-item:hover{
+    width: 220px;
+    height: 220px;
+    float: left;
+    margin: 0;
+    box-shadow: 0 15px 25px #000;
+}
+.request-item .image{
+    width: 100%;
+    height: 120px;
+}
+.request-item .desc{
+    width: 100%;
+    height:80px;
+}
+.login {
+    width: 300px;
+    height: 200px;
 }

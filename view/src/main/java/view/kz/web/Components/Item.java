@@ -11,6 +11,15 @@ public class Item {
     private String text;
     private String link;
     private String img;
+    private String styleClass;
+
+    public String getStyleClass() {
+        return styleClass;
+    }
+
+    public void setStyleClass(String styleClass) {
+        this.styleClass = styleClass;
+    }
 
     public String getText() {
         return text;
