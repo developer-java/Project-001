@@ -1,118 +1,47 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:rich="http://richfaces.org/rich"
-                xmlns:a4j="http://richfaces.org/a4j" xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
                 template="/layout/parrent/template.xhtml">
-    <ui:insert name="metadata"/>
-    <ui:define name="formContent">
-        <h:form>
-            <div class="header" style="width: 100%;">
-                <div class="container">
-                    <div class="row" style="background-color: rgba(0,0,0,0);padding-bottom: 0; margin-bottom: 0; padding-top: 50px">
-                        <h1 style="color: white; width: 60%">#{strings['title1']}</h1>
-                    </div>
-                </div>
-                <div id="myCarousel" class="carousel slide" data-ride="carousel" style="padding-bottom: 60px; height: 500px;">
-                    <ol class="carousel-indicators" style="padding: 0;bottom: 0px">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <div class="container" style="background-color: rgba(0,0,0,0);">
-                                <div class="row" style="background-color: rgba(0,0,0,0);">
-                                    <h:form>
-                                        <div class="col-sm-12" style="padding: 16px">
-                                            <center>
-                                                <h:outputLabel value="#{strings['student']}" styleClass="title3"/>
-                                                <ui:repeat value="#{inform.requestForStudents}" var="std">
-                                                    <div class="request-item">
-                                                        <div class="image">
-                                                            <center>
-                                                                <img src="#{std.img}" width="120px" height="120px"/>
-                                                            </center>
-                                                        </div>
-                                                        <div class="desc">
-                                                            <h:commandLink styleClass="requestLink" style="color: white;" value="#{std.requestName}" action="#{std.link}"/>
-                                                        </div>
-                                                    </div>
-                                                </ui:repeat>
-                                            </center>
-                                        </div>
-                                    </h:form>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="container" style="background-color: rgba(0,0,0,0);">
-                                <div class="row" style="background-color: rgba(0,0,0,0);">
-                                    <h:form>
-                                        <div class="col-sm-12" style="padding: 16px">
-                                            <center>
-                                                <h:outputLabel value="#{strings['teacher']}" styleClass="title3"/>
-                                                <ui:repeat value="#{inform.requestForTeachers}" var="std">
-                                                    <div class="request-item">
-                                                        <div class="image">
-                                                            <center>
-                                                                <img src="#{std.img}" width="120px" height="120px"/>
-                                                            </center>
-                                                        </div>
-                                                        <div class="desc">
-                                                            <h:commandLink styleClass="requestLink" style="color: white;" value="#{std.requestName}" action="#{std.link}"/>
-                                                        </div>
-                                                    </div>
-                                                </ui:repeat>
-                                            </center>
-                                        </div>
-                                    </h:form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="container" style="background-color: rgba(0,0,0,.0);">
-                                <div class="row" style="background-color: rgba(0,0,0,0);">
-                                    <h:form>
-                                        <div class="col-sm-12" style="padding: 16px">
-                                            <center>
-                                                <h:outputLabel value="#{strings['workers']}" styleClass="title3"/>
-                                                <ui:repeat value="#{inform.requestForWorkers}" var="std">
-                                                    <div class="request-item">
-                                                        <div class="image">
-                                                            <center>
-                                                                <img src="#{std.img}" width="120px" height="120px"/>
-                                                            </center>
-                                                        </div>
-                                                        <div class="desc">
-                                                            <h:commandLink styleClass="requestLink" style="color: white;" value="#{std.requestName}" action="#{std.link}"/>
-                                                        </div>
-                                                    </div>
-                                                </ui:repeat>
-                                            </center>
-                                        </div>
-                                    </h:form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+    <ui:define name="metadata">
+        <f:event type="preRenderView" listener="#{autorizationModel.goToService}"/>
+    </ui:define>
+    <ui:define name="content">
+        <div class="container">
+            <div class="col-sm-12">
+                <div class="jumbotron">
+                    <h1>#{strings['welcome']}</h1>
+                    <p>#{strings['title']}</p>
                 </div>
             </div>
-            <center>
-                <div class="login">
+            <div class="container" style="color:black">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h3>#{strings['forStudents']}</h3>
+                        <p>#{strings['request.type1']}</p>
+                        <p>#{strings['request.type2']}</p>
+                        <p>#{strings['request.type3']}</p>
+                        <p>#{strings['request.type4']}</p>
+                        <p>....</p>
 
+                        <h3>#{strings['forWorkers']}</h3>
+                        <p>#{strings['request.type5']}</p>
+                        <p>#{strings['request.type6']}</p>
+                        <p>....</p>
+                    </div>
+                    <div class="col-sm-9" style="padding-right: 60px">
+                        <div class="row">
+                            <div class="jumbotron">
+                                <h1>#{strings['helperTitle']}</h1>
+                                <p>#{strings['helperItem1-1']} <a href="http://egov.kz/cms/ru/information/eds/getecp" target="blank">#{strings['helperItem1-2']}</a> #{strings['helperItem1-3']}</p>
+                                <p>#{strings['helperItem2-1']} <a href="/form/registration/new.xhtml">#{strings['helperItem2-2']}</a></p>
+                                <p>#{strings['helperItem3-1']} <a href="#downloadPolicy">#{strings['helperItem3-2']}</a></p>
+                                <p>#{strings['helperItem4']}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </center>
-        </h:form>
+            </div>
+        </div>
     </ui:define>
     <ui:define name="addContent">
     </ui:define>

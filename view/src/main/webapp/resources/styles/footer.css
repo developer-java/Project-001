@@ -1,3 +1,5 @@
-.links a{float: left; text-align: left; width: 100%; color: #a4a4a4; text-decoration: none;}
-.links a:hover{text-decoration:underline; color: #00004f
-}
+.footer .requestLink{color: #ffffff}
+.footer .requestLink:hover{color: #0078d0}
+.footer{background-color: rgba(0,0,0,0); padding-top: 30px;}
+.footer .title{text-align: left;width: 100%;color:#fff;font-weight: 700;}
+.footer .col-sm-3{padding: 16px;height: 150px;background-color: rgba(0,0,0,.4)}

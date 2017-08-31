@@ -1,0 +1,58 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich">
+    <div id="loginModalDialog" class="modal fade" style="display: none;">
+        <h:form id="loginModal">
+            <a4j:outputPanel id="loginModalDialogPanel" layout="block" styleClass="modal-dialog">
+                <div class="modal-content">
+                    <center>
+                        <div class="modal-header">
+                            <h:outputText value="Авторизация"/>
+                        </div>
+                        <div class="modal-body" id="sign">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <h:inputText id="login" type="text" class="form-control" value="#{autorizationModel.login}"/>
+
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <h:inputSecret id="password" type="password" class="form-control" value="#{autorizationModel.password}"/>
+                            </div>
+                            <rich:message for="sign" ajaxRendered="true"/>
+                            <a4j:commandButton style="width: 98%" styleClass="btn btn-success" value="Войти" action="#{autorizationModel.doSign}"/>
+                            <h:commandLink styleClass="btn btn-link" value="#{strings['registration']}" action="form/registration/new.xhtml?faces-redirect=true"/>
+                        </div>
+                        <div class="modal-footer">
+                            <h:commandButton styleClass="btn btn-danger" onclick="hideloginModalDialog()" value="Close"/>
+                        </div>
+                    </center>
+                </div>
+            </a4j:outputPanel>
+            <a4j:outputPanel id="afterSaveLoginPanel">
+                <script type="text/javascript">
+                    function afterSaveJur() {
+                        if(#{not admCase45EditModel.hasSaveError}) {
+                            hideloginModalDialog();
+                        }
+                    }
+                </script>
+            </a4j:outputPanel>
+        </h:form>
+    </div>
+
+    <script type="text/javascript">
+        function hideloginModalDialog() {
+            $('#loginModalDialog').modal('hide');
+        }
+
+        $(document).ready(function () {
+            $('#loginModalDialog').modal({
+                backdrop: 'static',
+                show: false
+            }).on('shown.bs.modal', function() {if(#{!isViewMode}) {$("#loginModalDialog").find(".needAddRedStar").append("&lt;span class='form-required' title='#{interface['javax.faces.component.UIInput.REQUIRED']}'\&gt; *&lt;/span&gt;");}});
+        });
+    </script>
+</ui:composition>

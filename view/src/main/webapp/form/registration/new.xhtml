@@ -1,0 +1,99 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="#{pageContext.request.contextPath}/layout/parrent/template.xhtml">
+    <ui:define name="content">
+        <h:form>
+            <style>
+
+            </style>
+            <div class="panel panel-default myPanel">
+                <div class="panel-body">
+                    <center>
+                        <div style="width: 60%">
+                            <table width="100%">
+                                <tr>
+                                    <td width="15%">
+                                        <h:outputText value="#{strings['login']}"/>
+                                    </td>
+                                    <td width="85%">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                            <h:inputText id="email" styleClass="form-control"/>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{strings['password']}"/>
+                                    </td>
+                                    <td>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                            <h:inputSecret id="password" type="password" class="form-control"/>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{strings['firstname']}"/>
+                                    </td>
+                                    <td>
+                                        <div class="input-group">
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{strings['lastname']}"/>
+                                    </td>
+                                    <td>
+                                        <div class="input-group">
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{strings['patronmyc']}"/>
+                                    </td>
+                                    <td>
+                                        <div class="input-group">
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{strings['email']}"/>
+                                    </td>
+                                    <td>
+                                        <div class="input-group">
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{strings['phone']}"/>
+                                    </td>
+                                    <td>
+                                        <div class="input-group">
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+    <ui:define name="addContent">
+
+    </ui:define>
+</ui:composition>
