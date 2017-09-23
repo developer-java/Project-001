@@ -15,22 +15,23 @@ import java.sql.SQLException;
 @ManagedBean
 @SessionScoped
 public class AutorizationModel {
+
     public static final String DEFAULT_PAGE = "/form/service.xhtml?faces-redirect=true";
     @EJB
     private UserManagment userManagment;
+
     private SystemUser user;
     private String login;
     private String password;
 
     public String doSign(){
         boolean hasEmpty = false;
-        FacesContext context = FacesContext.getCurrentInstance();
         if(login==null || login.isEmpty()){
-            FacesContext.getCurrentInstance().addMessage("loginModal:login", new FacesMessage(FacesMessage.SEVERITY_ERROR, BundleManager.getInterface("lineError"), null));
+            FacesContext.getCurrentInstance().addMessage("loginForm:signBtn", new FacesMessage(FacesMessage.SEVERITY_ERROR, BundleManager.getInterface("lineError"), null));
             hasEmpty = true;
         }
-        if(password==null||password.isEmpty()){
-            FacesContext.getCurrentInstance().addMessage("loginModal:password", new FacesMessage(FacesMessage.SEVERITY_ERROR, BundleManager.getInterface("lineError"), null));
+        else if(password==null||password.isEmpty()){
+            FacesContext.getCurrentInstance().addMessage("loginForm:signBtn", new FacesMessage(FacesMessage.SEVERITY_ERROR, BundleManager.getInterface("lineError"), null));
             hasEmpty = true;
         }
         if(hasEmpty){
@@ -38,9 +39,9 @@ public class AutorizationModel {
         }
         SystemUser u = null;
         try {
-            u = userManagment.getUserByLoginAndPassword(getLogin(),getPassword());
+            u = userManagment.getUserByIinAndPassword(getLogin(),getPassword());
         }catch (Exception e){
-            FacesContext.getCurrentInstance().addMessage("loginModal:login", new FacesMessage(FacesMessage.SEVERITY_ERROR, BundleManager.getInterface("lineError"), null));
+            FacesContext.getCurrentInstance().addMessage("loginForm:signBtn", new FacesMessage(FacesMessage.SEVERITY_ERROR, BundleManager.getInterface("userNotFound"), null));
         }
         if(u==null){
             return "#error";

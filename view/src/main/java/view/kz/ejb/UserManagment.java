@@ -15,9 +15,10 @@ public class UserManagment {
     public SystemUser getUserById(Long id){
         return em.find(SystemUser.class,id);
     }
-    public SystemUser getUserByLoginAndPassword(String login, String pass){
-        return (SystemUser) em.createQuery("SELECT u FROM SystemUser u WHERE u.login = :login AND u.password = :password")
-                .setParameter("login",login)
+
+    public SystemUser getUserByIinAndPassword(String iin, String pass){
+        return (SystemUser) em.createQuery("SELECT u FROM SystemUser u WHERE u.iin = :login AND u.password = :password")
+                .setParameter("login",iin)
                 .setParameter("password",pass)
                 .getSingleResult();
     }

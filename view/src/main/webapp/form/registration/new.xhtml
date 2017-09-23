@@ -1,92 +1,30 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:h="http://java.sun.com/jsf/html" xmlns:a4j="http://richfaces.org/a4j"
                 template="#{pageContext.request.contextPath}/layout/parrent/template.xhtml">
     <ui:define name="content">
         <h:form>
-            <style>
-
-            </style>
             <div class="panel panel-default myPanel">
                 <div class="panel-body">
                     <center>
                         <div style="width: 60%">
+                            <div class="input-group">
+                                <h:selectOneRadio id="edit-participantType" value="#{registrationModel.user.student}" layout="pageDirection" required="true">
+                                    <f:selectItem itemValue="#{true}" itemLabel="Хочу зарегестрироватся как Студент" style="float:left;"/>
+                                    <f:selectItem itemValue="#{false}" itemLabel="Хочу зарегестрироватся как Сотрудник" style="float:left;"/>
+                                    <f:ajax event="change" render="stdOrWorker"/>
+                                </h:selectOneRadio>
+                            </div>
                             <table width="100%">
-                                <tr>
-                                    <td width="15%">
-                                        <h:outputText value="#{strings['login']}"/>
-                                    </td>
-                                    <td width="85%">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                            <h:inputText id="email" styleClass="form-control"/>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h:outputText value="#{strings['password']}"/>
-                                    </td>
-                                    <td>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                            <h:inputSecret id="password" type="password" class="form-control"/>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h:outputText value="#{strings['firstname']}"/>
-                                    </td>
-                                    <td>
-                                        <div class="input-group">
-
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h:outputText value="#{strings['lastname']}"/>
-                                    </td>
-                                    <td>
-                                        <div class="input-group">
-
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h:outputText value="#{strings['patronmyc']}"/>
-                                    </td>
-                                    <td>
-                                        <div class="input-group">
-
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h:outputText value="#{strings['email']}"/>
-                                    </td>
-                                    <td>
-                                        <div class="input-group">
-
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h:outputText value="#{strings['phone']}"/>
-                                    </td>
-                                    <td>
-                                        <div class="input-group">
-
-                                        </div>
-                                    </td>
-                                </tr>
+                                <a4j:outputPanel id="stdOrWorker">
+                                    <ui:fragment rendered="#{registrationModel.user.student}">
+                                        <ui:include src="student.xhtml"/>
+                                    </ui:fragment>
+                                    <ui:fragment rendered="#{!registrationModel.user.student}">
+                                        <ui:include src="worker.xhtml"/>
+                                    </ui:fragment>
+                                </a4j:outputPanel>
                             </table>
-
-
                         </div>
                     </center>
                 </div>

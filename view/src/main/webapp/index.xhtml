@@ -1,46 +1,86 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://java.sun.com/jsf/html"
                 template="/layout/parrent/template.xhtml">
     <ui:define name="metadata">
         <f:event type="preRenderView" listener="#{autorizationModel.goToService}"/>
     </ui:define>
     <ui:define name="content">
-        <div class="container">
-            <div class="col-sm-12">
-                <div class="jumbotron">
-                    <h1>#{strings['welcome']}</h1>
-                    <p>#{strings['title']}</p>
-                </div>
-            </div>
-            <div class="container" style="color:black">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <h3>#{strings['forStudents']}</h3>
-                        <p>#{strings['request.type1']}</p>
-                        <p>#{strings['request.type2']}</p>
-                        <p>#{strings['request.type3']}</p>
-                        <p>#{strings['request.type4']}</p>
-                        <p>....</p>
 
-                        <h3>#{strings['forWorkers']}</h3>
-                        <p>#{strings['request.type5']}</p>
-                        <p>#{strings['request.type6']}</p>
-                        <p>....</p>
-                    </div>
-                    <div class="col-sm-9" style="padding-right: 60px">
-                        <div class="row">
-                            <div class="jumbotron">
-                                <h1>#{strings['helperTitle']}</h1>
-                                <p>#{strings['helperItem1-1']} <a href="http://egov.kz/cms/ru/information/eds/getecp" target="blank">#{strings['helperItem1-2']}</a> #{strings['helperItem1-3']}</p>
-                                <p>#{strings['helperItem2-1']} <a href="/form/registration/new.xhtml">#{strings['helperItem2-2']}</a></p>
-                                <p>#{strings['helperItem3-1']} <a href="#downloadPolicy">#{strings['helperItem3-2']}</a></p>
-                                <p>#{strings['helperItem4']}</p>
+        <div class="background-image"></div>
+        <div class="login">
+            <div class="left-block">
+                <div class="container">
+                    <div class="header">
+                        <center>
+                            <div class="logo">
+                                <table style="">
+                                    <tr style="height: 100%">
+                                        <td width="30%">
+                                            <img src="resources/img/logo.png" alt="IMG" width="100%"/>
+                                        </td>
+                                        <td width="70%">
+                                            <p>Hello my Friend! My name System Brain!</p>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
-                        </div>
+                        </center>
+                    </div>
+                    <div class="content">
+                        <h:form id="loginForm">
+                            <center>
+                                <h1>Добро пожаловать </h1>
+                                <h3 style="color: #191414">
+                                    в систему онлайн подачи заявлении
+                                </h3>
+                            </center>
+                            <a4j:outputPanel ajaxRendered="true">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="20%">
+                                            <h:outputText value="ИИН"/>
+                                        </td>
+                                        <td width="80%">
+                                            <h:inputText id="login" styleClass="text" value="#{autorizationModel.login}"/>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <h:outputText value="Пароль"/>
+                                        </td>
+                                        <td>
+                                            <h:inputSecret id="password" styleClass="text" value="#{autorizationModel.password}"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <rich:message for="signBtn" styleClass="error"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a4j:commandButton id="signByEP" styleClass="btn btn-success" value="#{strings['signByEP']}" action="#signByEP"/>
+                                        </td>
+                                        <td>
+                                            <a4j:commandButton id="signBtn" styleClass="text" value="#{strings['autorize']}" action="#{autorizationModel.doSign}"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </a4j:outputPanel>
+                        </h:form>
+                    </div>
+                    <div class="footer">
+                        <center>
+                            <p style="color: white">© Амангелдіұлы Мағжан. 2017</p>
+                        </center>
                     </div>
                 </div>
             </div>
+            <div class="rigth-filter"></div>
         </div>
     </ui:define>
     <ui:define name="addContent">

@@ -9,5 +9,6 @@
   <modules>
     <module>view</module>
     <module>service</module>
+    <module>admin</module>
   </modules>
 </project>

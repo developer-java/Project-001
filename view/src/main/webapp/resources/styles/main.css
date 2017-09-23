@@ -1,15 +1,126 @@
-body {background-image: url(../../resources/img/item1.jpg);background-size: 100% 100%; background-attachment: fixed; background-repeat: no-repeat; background-position: bottom;}
-/*INDEX*/
-.requestLink{font-size: 14px;color: #fff;font-weight: 400;text-align: center;}
-.requestLink:hover{color: #0092ff;text-decoration: underline;}
-.header{width: 100%;height: 50px; background-color: none; margin-bottom: 16px;}
-.rf-msg-err{background-image: none;}
-.jumbotron { box-shadow: 0 6px 16px #676767;}
-.jumbotron a{font-size: 21px; font-weight: 200;}
+.login .left-block{
+    width: 500px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 20;
+    left: 0;
+    background-color: whitesmoke;
+}
+.login .rigth-filter{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(138,43,226,.3);
+    z-index: 10;
+}
+.background-image{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    filter: blur(5px);
+    background-image: url(../../resources/img/back.png);
+}
+.container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.container .footer{
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    left: 0;
+    background-color: blueviolet;
+    height: 150px;
+}
 
+.container .header{
+    width: 100%;
+    top:0;
+    position: absolute;
+    left: 0;
+    background-color: blueviolet;
+    height: 300px;
+}
+.container .content{
+    width: 100%;
+    top:300px;
+    position: absolute;
+    left: 0;
+}
+.text{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5px;
+    height: 30px;
+    border: 1px solid #000;
+}
+.logo{
+    height: 200px;
+    width: 450px;
+    margin-top: 50px;
+}
+.logo table{
+    width: 100%; height: 100%;
+}
 
-
-/*REGISTRATION*/
-.input-group{margin: 5px;}
-.myPanel{background-color: rgba(0,0,0,0);}
-.panel-default {border:none;}
+.logo table p{
+    font-weight: 900;
+    color:#fff;
+    font-size: 24px;
+}
+#loginForm{
+    margin-top: 20px;
+    margin-left: 50px;
+    width: 400px;
+    height: 300px;
+}
+.error{
+    font-size: 8px;
+    color: red;
+}
+.main-header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left:0;
+    height: 75px;
+    background-color: blueviolet;
+}
+.main-content{
+    margin-top: 80px;
+    width: 1200px;
+    min-height: 540px;
+}
+.main-header .rigth-block{
+    width: 200px;
+    height: 100%;
+    float: right;
+    margin-right: 50px;
+}
+.main-header .rigth-block:hover{
+    width: 200px;
+    height: 100%;
+    float: right;
+    margin-right: 50px;
+    background-color: rgba(255,255,255,.1);
+}
+.main-header .rigth-block p{
+    line-height: 75px;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+}
+.modal-user{
+    display: none;
+    width: 200px;
+    height: 400px;
+    background-color: blue;
+    margin-top: 75px;
+    position: fixed;
+    margin-right: 50px;
+}
