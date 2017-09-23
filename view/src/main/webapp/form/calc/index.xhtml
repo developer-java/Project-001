@@ -1,0 +1,14 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+                template="#{pageContext.request.contextPath}/layout/parrent/template.xhtml">
+    <ui:define name="metadata">
+        <f:event type="preRenderView" listener="#{autorizationModel.handle}" />
+    </ui:define>
+    <ui:define name="content">
+        <div class="col-sm-3"/>
+        <div class="col-sm-6">
+            <h1>Калькулятор</h1>
+        </div>
+        <div class="col-sm-3"/>
+    </ui:define>
+</ui:composition>
