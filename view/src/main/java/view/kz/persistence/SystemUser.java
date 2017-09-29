@@ -22,48 +22,9 @@ public class SystemUser extends ENTITY {
     private String login;
     @Column(name = "PASSWORD")
     private String password;
-    @Column(name = "IS_STUDENT")
-    private Boolean student;
-    @Column(name = "FACULTET")
-    private String facultet;
-    @Column(name = "GROUP")
-    private String group;
-    @Column(name = "KAFEDRA")
-    private String kafedra;
     @Column(name = "IIN")
     private String iin;
 
-    public Boolean getStudent() {
-        return student;
-    }
-
-    public void setStudent(Boolean student) {
-        this.student = student;
-    }
-
-    public String getFacultet() {
-        return facultet;
-    }
-
-    public void setFacultet(String facultet) {
-        this.facultet = facultet;
-    }
-
-    public String getGroup() {
-        return group;
-    }
-
-    public void setGroup(String group) {
-        this.group = group;
-    }
-
-    public String getKafedra() {
-        return kafedra;
-    }
-
-    public void setKafedra(String kafedra) {
-        this.kafedra = kafedra;
-    }
 
     public String getIin() {
         return iin;

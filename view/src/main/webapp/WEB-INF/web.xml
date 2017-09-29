@@ -20,26 +20,26 @@
     </session-config>
 
     <!--LINQBASE-->
-    <context-param>
-        <param-name>liquibase.changelog</param-name>
-        <param-value>database/root.xml</param-value>
-    </context-param>
-    <context-param>
-        <param-name>liquibase.datasource</param-name>
-        <param-value>java:/template</param-value>
-    </context-param>
-    <context-param>
-        <param-name>liquibase.host.excludes</param-name>
-        <param-value>production1.example.com, production2.example.com</param-value>
-    </context-param>
-    <context-param>
-        <param-name>liquibase.onerror.fail</param-name>
-        <param-value>true</param-value>
-    </context-param>
-    <context-param>
-        <param-name>liquibase.contexts</param-name>
-        <param-value>production</param-value>
-    </context-param>
+    <!--<context-param>-->
+        <!--<param-name>liquibase.changelog</param-name>-->
+        <!--<param-value>database/root.xml</param-value>-->
+    <!--</context-param>-->
+    <!--<context-param>-->
+        <!--<param-name>liquibase.datasource</param-name>-->
+        <!--<param-value>java:/template</param-value>-->
+    <!--</context-param>-->
+    <!--<context-param>-->
+        <!--<param-name>liquibase.host.excludes</param-name>-->
+        <!--<param-value>production1.example.com, production2.example.com</param-value>-->
+    <!--</context-param>-->
+    <!--<context-param>-->
+        <!--<param-name>liquibase.onerror.fail</param-name>-->
+        <!--<param-value>true</param-value>-->
+    <!--</context-param>-->
+    <!--<context-param>-->
+        <!--<param-name>liquibase.contexts</param-name>-->
+        <!--<param-value>production</param-value>-->
+    <!--</context-param>-->
 
     <error-page>
         <error-code>404</error-code>

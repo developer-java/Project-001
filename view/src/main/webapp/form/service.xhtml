@@ -6,11 +6,15 @@
         <f:event type="preRenderView" listener="#{autorizationModel.handle}" />
     </ui:define>
     <ui:define name="main-content">
-        <h:form>
-            <h:commandButton action="#{autorizationModel.logOut}" value="Logout"/>
+        <h:form styleClass="container">
+            <div class="row">
+                <ui:repeat value="#{menu}" var="item">
+
+                </ui:repeat>
+            </div>
         </h:form>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eius nesciunt possimus saepe sunt temporibus! Eaque fuga impedit maxime sed temporibus. Assumenda inventore laboriosam odit placeat quam reprehenderit sapiente. Ab ad alias amet animi consequuntur deserunt dolorem dolores ducimus eius eligendi eos, ex inventore ipsam laborum nihil nobis nostrum possimus provident qui quibusdam quo sit tempora totam ullam unde vitae, voluptatibus. Deleniti doloribus eius possimus qui tempore veniam voluptate. Ab ad aliquam, animi atque aut beatae blanditiis deserunt dignissimos doloribus ea eius eos eveniet, facilis harum labore laudantium mollitia nulla numquam optio perferendis possimus provident quaerat quam recusandae repudiandae sed tempore veritatis. Aliquid, atque corporis culpa cum illo illum laboriosam natus, quaerat repellendus reprehenderit similique vel? Accusantium adipisci architecto blanditiis consequuntur cupiditate eum exercitationem explicabo facere fugit impedit in ipsam itaque laborum laudantium maxime, nobis non omnis quam quisquam quod quos reiciendis repellat rerum saepe similique ullam veniam veritatis voluptas.
     </ui:define>
     <ui:define name="addContent">
     </ui:define>
+
 </ui:composition>

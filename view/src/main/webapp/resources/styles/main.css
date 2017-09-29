@@ -89,6 +89,7 @@
     top: 0;
     left:0;
     height: 75px;
+    z-index: 1000;
     background-color: blueviolet;
 }
 .main-content{
@@ -100,13 +101,13 @@
     width: 200px;
     height: 100%;
     float: right;
+}
+.exit{
     margin-right: 50px;
+    margin-left: 5px;
+    width: 75px;
 }
 .main-header .rigth-block:hover{
-    width: 200px;
-    height: 100%;
-    float: right;
-    margin-right: 50px;
     background-color: rgba(255,255,255,.1);
 }
 .main-header .rigth-block p{
@@ -123,4 +124,21 @@
     margin-top: 75px;
     position: fixed;
     margin-right: 50px;
+}
+.logo{
+    height: 100%;
+    margin-left: 100px;
+    margin-top: 0;
+    float: left;
+}
+.logOutBtn{
+    background-color: rgba(0,0,0,0);
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 75px;
+    height: 75px;
+}
+.logOutBtn hover{
+    color: white;
 }

@@ -9,23 +9,36 @@
         <f:event type="preRenderView" listener="#{autorizationModel.goToService}"/>
     </ui:define>
     <ui:define name="content">
-        <div class="main-header">
-            <div class="rigth-block" onclick="showModalUser">
-                 <center>
-                     <p>
-                         #{autorizationModel.user.getFIO()}
-                     </p>
-                 </center>
-                <div class="modal-user">
+        <h:form>
+            <div class="main-header">
+                <a href="/">
+                    <div class="logo" >
+                        <img src="/resources/img/logo.png" alt="IMG" height="100%"/>
+                    </div>
+                </a>
+                <a4j:outputPanel styleClass="rigth-block exit" style="width: 100px" ajaxRendered="true">
+                    <center>
+                        <a4j:commandButton action="#{autorizationModel.logOut}" value="Выйти" styleClass="logOutBtn" style="background-color: rgba(0,0,0,0); color:white; font-weight: 600;border:none;background-image:none;font-size: 16px;"/>
+                    </center>
+                </a4j:outputPanel>
+                <div class="rigth-block" onclick="showModalUser">
+                    <center>
+                        <p>
+                            #{autorizationModel.user.getFIO()}
+                        </p>
+                    </center>
+                    <div class="modal-user">
 
+                    </div>
                 </div>
+
             </div>
-        </div>
-        <center>
-            <div class="main-content">
-                <ui:insert name="main-content"/>
-            </div>
-        </center>
+            <center>
+                <div class="main-content">
+                    <ui:insert name="main-content"/>
+                </div>
+            </center>
+        </h:form>
     </ui:define>
     <ui:insert name="addContent"/>
 </ui:composition>

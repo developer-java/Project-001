@@ -88,7 +88,7 @@ public class AutorizationModel {
     }
     public void handle() throws IOException {
         if(getUser()==null){
-            FacesContext.getCurrentInstance().getExternalContext().redirect(FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + "/index.xhtml?faces-redirect=true");
+                FacesContext.getCurrentInstance().getExternalContext().redirect(FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + "/index.xhtml?faces-redirect=true");
         }
     }
     public void goToService() throws IOException {

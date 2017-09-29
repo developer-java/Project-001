@@ -38,38 +38,38 @@
                                 </h3>
                             </center>
                             <a4j:outputPanel ajaxRendered="true">
-                                <table width="100%">
-                                    <tr>
-                                        <td width="20%">
-                                            <h:outputText value="ИИН"/>
-                                        </td>
-                                        <td width="80%">
-                                            <h:inputText id="login" styleClass="text" value="#{autorizationModel.login}"/>
-                                        </td>
-                                    </tr>
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="20%">
+                                                <h:outputText value="ИИН"/>
+                                            </td>
+                                            <td width="80%">
+                                                <h:inputText id="login" styleClass="text" value="#{autorizationModel.login}"/>
+                                            </td>
+                                        </tr>
 
-                                    <tr>
-                                        <td>
-                                            <h:outputText value="Пароль"/>
-                                        </td>
-                                        <td>
-                                            <h:inputSecret id="password" styleClass="text" value="#{autorizationModel.password}"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">
-                                            <rich:message for="signBtn" styleClass="error"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a4j:commandButton id="signByEP" styleClass="btn btn-success" value="#{strings['signByEP']}" action="#signByEP"/>
-                                        </td>
-                                        <td>
-                                            <a4j:commandButton id="signBtn" styleClass="text" value="#{strings['autorize']}" action="#{autorizationModel.doSign}"/>
-                                        </td>
-                                    </tr>
-                                </table>
+                                        <tr>
+                                            <td>
+                                                <h:outputText value="Пароль"/>
+                                            </td>
+                                            <td>
+                                                <h:inputSecret id="password" styleClass="text" value="#{autorizationModel.password}"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <rich:message for="signBtn" styleClass="error"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a4j:commandButton id="signByEP" styleClass="btn btn-success" value="#{strings['signByEP']}" action="#signByEP"/>
+                                            </td>
+                                            <td>
+                                                <a4j:commandButton id="signBtn" styleClass="text" value="#{strings['autorize']}" action="#{autorizationModel.doSign}"/>
+                                            </td>
+                                        </tr>
+                                    </table>
                             </a4j:outputPanel>
                         </h:form>
                     </div>
