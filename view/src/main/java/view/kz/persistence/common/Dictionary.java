@@ -1,7 +1,5 @@
 package view.kz.persistence.common;
 
-import view.kz.web.AppController.LocaleModule;
-
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
@@ -68,13 +66,7 @@ public abstract class Dictionary extends Identifier implements IDictionary {
 
     @Transient
     public String getValue() {
-        if(LocaleModule.IS_RU()) {
-            return getValueRu();
-        } else if(LocaleModule.IS_EN()) {
-            return getValueEn();
-        } else {
-            return getValueKz();
-        }
+        return valueRu;
     }
 
     @Override

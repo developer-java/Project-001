@@ -1,20 +1,99 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:h="http://java.sun.com/jsf/html" xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://java.sun.com/jsf/html"
                 template="template.xhtml">
     <ui:define name="metadata">
-        <f:event type="preRenderView" listener="#{autorizationModel.handle}" />
+        <f:event type="preRenderView" listener="#{autorizationModel.handle}"/>
     </ui:define>
     <ui:define name="main-content">
-        <h:form styleClass="container">
+        <h:form styleClass="container" style="padding-top: 100px">
             <div class="row">
-                <ui:repeat value="#{menu}" var="item">
-
-                </ui:repeat>
+                <a4j:outputPanel ajaxRendered="true">
+                    <div class="menu-container">
+                        <a href="profile/index.xhtml">
+                            <div class="items-container">
+                                <div class="menu-items">
+                                    <div class="image-panel">
+                                        <center>
+                                            <img src="#{facesContext.externalContext.requestContextPath}/resources/img/profile.png" class="image"/>
+                                        </center>
+                                    </div>
+                                    <div class="title-panel">
+                                        <p>Профиль</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="request/index.xhtml">
+                            <div class="items-container">
+                                <div class="menu-items">
+                                    <div class="image-panel">
+                                        <center>
+                                            <img src="#{facesContext.externalContext.requestContextPath}/resources/img/request.png" class="image"/>
+                                        </center>
+                                    </div>
+                                    <div class="title-panel">
+                                        <p>Заявки</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="myResuest/index.xhtml">
+                            <div class="items-container">
+                                <div class="menu-items">
+                                    <div class="image-panel">
+                                        <center>
+                                            <img src="#{facesContext.externalContext.requestContextPath}/resources/img/myReq.png" class="image"/>
+                                        </center>
+                                    </div>
+                                    <div class="title-panel">
+                                        <p>Мои запросы</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="items-container">
+                            <div class="menu-items">
+                                <div class="image-panel">
+                                    <center>
+                                        <img src="#{facesContext.externalContext.requestContextPath}/resources/img/setting.png" class="image"/>
+                                    </center>
+                                </div>
+                                <div class="title-panel">
+                                    <p>Настройки</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="items-container">
+                            <div class="menu-items">
+                                <div class="image-panel">
+                                    <center>
+                                        <img src="#{facesContext.externalContext.requestContextPath}/resources/img/help.png" class="image"/>
+                                    </center>
+                                </div>
+                                <div class="title-panel">
+                                    <p>Помощь</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="items-container">
+                            <div class="menu-items">
+                                <div class="image-panel">
+                                    <center>
+                                        <img src="#{facesContext.externalContext.requestContextPath}/resources/img/about.png" class="image"/>
+                                    </center>
+                                </div>
+                                <div class="title-panel">
+                                    <p>О нас</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a4j:outputPanel>
             </div>
         </h:form>
     </ui:define>
     <ui:define name="addContent">
     </ui:define>
-
 </ui:composition>

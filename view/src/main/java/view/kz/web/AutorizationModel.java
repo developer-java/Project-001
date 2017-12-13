@@ -2,6 +2,7 @@ package view.kz.web;
 
 import view.kz.ejb.UserManagment;
 import view.kz.persistence.SystemUser;
+import view.kz.persistence.types.PositionTypes;
 import view.kz.web.AppController.BundleManager;
 
 import javax.ejb.EJB;
@@ -24,26 +25,25 @@ public class AutorizationModel {
     private String login;
     private String password;
 
-    public String doSign(){
+    public String doSign() {
         boolean hasEmpty = false;
-        if(login==null || login.isEmpty()){
+        if (login == null || login.isEmpty()) {
+            FacesContext.getCurrentInstance().addMessage("loginForm:signBtn", new FacesMessage(FacesMessage.SEVERITY_ERROR, BundleManager.getInterface("lineError"), null));
+            hasEmpty = true;
+        } else if (password == null || password.isEmpty()) {
             FacesContext.getCurrentInstance().addMessage("loginForm:signBtn", new FacesMessage(FacesMessage.SEVERITY_ERROR, BundleManager.getInterface("lineError"), null));
             hasEmpty = true;
         }
-        else if(password==null||password.isEmpty()){
-            FacesContext.getCurrentInstance().addMessage("loginForm:signBtn", new FacesMessage(FacesMessage.SEVERITY_ERROR, BundleManager.getInterface("lineError"), null));
-            hasEmpty = true;
-        }
-        if(hasEmpty){
+        if (hasEmpty) {
             return null;
         }
         SystemUser u = null;
         try {
-            u = userManagment.getUserByIinAndPassword(getLogin(),getPassword());
-        }catch (Exception e){
+            u = userManagment.getUserByIinAndPassword(getLogin(), getPassword());
+        } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage("loginForm:signBtn", new FacesMessage(FacesMessage.SEVERITY_ERROR, BundleManager.getInterface("userNotFound"), null));
         }
-        if(u==null){
+        if (u == null) {
             return "#error";
         }
         setUser(u);
@@ -51,6 +51,7 @@ public class AutorizationModel {
     }
 
     public SystemUser getUser() {
+
         return user;
     }
 
@@ -74,26 +75,71 @@ public class AutorizationModel {
         this.password = password;
     }
 
-    public static void redirect(){
+    public static void redirect() {
         try {
             FacesContext.getCurrentInstance().getExternalContext().redirect(FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + DEFAULT_PAGE);
-        }
-        catch(Throwable t) {
+        } catch (Throwable t) {
             t.printStackTrace();
         }
     }
-    public void logOut(){
+
+    public void logOut() {
         setUser(null);
         redirect();
     }
+
     public void handle() throws IOException {
-        if(getUser()==null){
-                FacesContext.getCurrentInstance().getExternalContext().redirect(FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + "/index.xhtml?faces-redirect=true");
+        if (getUser() == null) {
+            FacesContext.getCurrentInstance().getExternalContext().redirect(FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + "/index.xhtml?faces-redirect=true");
         }
     }
+
     public void goToService() throws IOException {
-        if(getUser()!=null){
+        if (getUser() != null) {
             FacesContext.getCurrentInstance().getExternalContext().redirect(FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + DEFAULT_PAGE);
+        }
+    }
+
+    public void createTestUsers() {
+        SystemUser testUser;
+        for (int i = 0; i < 10; i++) {
+            testUser = new SystemUser();
+            testUser.setFirstname("Ерлан " + i);
+            testUser.setLastname("Габдулаев " + i);
+            testUser.setPatronmyc("Амантайович " + i);
+            testUser.setPosition(PositionTypes.PRODUCER);
+            testUser.setLogin("erlan" + i);
+            testUser.setPassword("erlan" + i);
+            userManagment.saveUser(testUser);
+        }
+        for (int i = 0; i < 10; i++) {
+            testUser = new SystemUser();
+            testUser.setFirstname("Азамат " + i);
+            testUser.setLastname("Абубакир " + i);
+            testUser.setPatronmyc("Хайдарович " + i);
+            testUser.setPosition(PositionTypes.INSTALLER);
+            testUser.setLogin("azamat" + i);
+            testUser.setPassword("azamat" + i);
+            userManagment.saveUser(testUser);
+        }
+        for (int i = 0; i < 10; i++) {
+            testUser = new SystemUser();
+            testUser.setFirstname("Гулсим " + i);
+            testUser.setLastname("Оралбайкызы " + i);
+            testUser.setPosition(PositionTypes.OPERATOR);
+            testUser.setLogin("gulsim" + i);
+            testUser.setPassword("gulsim" + i);
+            userManagment.saveUser(testUser);
+        }
+        for (int i = 0; i < 10; i++) {
+            testUser = new SystemUser();
+            testUser.setFirstname("Асел " + i);
+            testUser.setLastname("Маратова " + i);
+            testUser.setPatronmyc("Аманбеккызы " + i);
+            testUser.setPosition(PositionTypes.JOURNALIST);
+            testUser.setLogin("asel" + i);
+            testUser.setPassword("asel" + i);
+            userManagment.saveUser(testUser);
         }
     }
 }

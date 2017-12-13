@@ -1,0 +1,14 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html" xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://java.sun.com/jsf/html"
+                template="../template.xhtml">
+    <ui:define name="metadata">
+        <f:event type="preRenderView" listener="#{autorizationModel.handle}"/>
+    </ui:define>
+    <ui:define name="main-content">
+
+    </ui:define>
+    <ui:define name="addContent">
+    </ui:define>
+</ui:composition>

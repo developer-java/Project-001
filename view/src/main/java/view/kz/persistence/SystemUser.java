@@ -1,37 +1,46 @@
 package view.kz.persistence;
 
+import view.kz.persistence.common.Identifier;
 import view.kz.persistence.parentTemplate.ENTITY;
+import view.kz.persistence.types.PositionTypes;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
+import java.util.HashMap;
+import java.util.List;
 
 @Entity
 @Table(name = "SYSTEM_USERS")
-public class SystemUser extends ENTITY {
+public class SystemUser extends Identifier {
     @Column(name = "FIRSTNAME")
     private String firstname;
     @Column(name = "LASTNAME")
     private String lastname;
     @Column(name = "PATRONMYC")
     private String patronmyc;
-    @Column(name = "ADDRESS")
-    private String Address;
     @Column(name = "LOGIN")
     private String login;
     @Column(name = "PASSWORD")
     private String password;
-    @Column(name = "IIN")
-    private String iin;
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "POSITION")
+    private PositionTypes position;
+    @Column(name = "IS_TEST_USER")
+    private boolean testUser;
 
-
-    public String getIin() {
-        return iin;
+    public boolean isTestUser() {
+        return testUser;
     }
 
-    public void setIin(String iin) {
-        this.iin = iin;
+    public void setTestUser(boolean testUser) {
+        this.testUser = testUser;
+    }
+
+    public PositionTypes getPosition() {
+        return position;
+    }
+
+    public void setPosition(PositionTypes position) {
+        this.position = position;
     }
 
     public String getFirstname() {
@@ -51,19 +60,14 @@ public class SystemUser extends ENTITY {
     }
 
     public String getPatronmyc() {
+        if (patronmyc == null) {
+            patronmyc = "";
+        }
         return patronmyc;
     }
 
     public void setPatronmyc(String patronmyc) {
         this.patronmyc = patronmyc;
-    }
-
-    public String getAddress() {
-        return Address;
-    }
-
-    public void setAddress(String address) {
-        Address = address;
     }
 
     public String getLogin() {
@@ -81,8 +85,9 @@ public class SystemUser extends ENTITY {
     public void setPassword(String password) {
         this.password = password;
     }
+
     @Transient
-    public String getFIO(){
-        return String.format("%s %s %s",firstname,lastname,patronmyc);
+    public String getFIO() {
+        return String.format("%s %s %s", getFirstname(), getLastname(), getPatronmyc());
     }
 }

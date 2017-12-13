@@ -1,0 +1,187 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html" xmlns:a4j="http://richfaces.org/a4j"
+                template="../template.xhtml">
+    <ui:define name="metadata">
+        <f:event type="preRenderView" listener="#{autorizationModel.handle}"/>
+    </ui:define>
+    <ui:define name="main-content">
+        <h:form>
+            <a4j:outputPanel id="mainPanel" styleClass="container" ajaxRendered="true">
+                <div class="row">
+                    <div class="col-lg-3">
+                        #{autorizationModel.user.FIO}
+                        <img src="#{facesContext.externalContext.requestContextPath}/resources/img/avatar.png"
+                             width="200px" height="200px"/>
+                    </div>
+                    <div class="col-lg-5">
+                        <h3>#{requestMainModel.selectedUser.FIO}</h3>
+                        <p>Должность: #{strings[requestMainModel.selectedUser.position.bundleName]}</p>
+                        <p>Логин: #{requestMainModel.selectedUser.login}</p>
+                        <p>Рейтинг: 10</p>
+                        <p>Телефон номер: +7 707 105 0996</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <button class="btn btn-success" style="width: 60%; margin-top: 16px" onclick="send()">Подать заявку</button>
+                        <button class="btn btn-primary" style="width: 60%; margin-top: 16px">Еще что-то</button>
+                        <button class="btn btn-warning" style="width: 60%; margin-top: 16px">Отменить заявку</button>
+                    </div>
+                </div>
+                <style>
+                    .cube {
+                        width: 150px;
+                        height: 50px;
+                        box-shadow: 3px 3px 3px #ccc;
+                        border: 1px solid #ccc;
+                        float: left;
+                    }
+                </style>
+                <a4j:outputPanel id="graphicPanel" ajaxRendered="true">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="cube"
+                                 style="background-color: #{requestMainModel.selectedUserGraphics.a08_00_09_00 ? 'red' : 'green'}; margin-top: 5px;padding: 0;">
+                                <h:selectBooleanCheckbox value="#{requestMainModel.selectedUserGraphics.a08_00_09_00}"
+                                                         style="float:left;;width: 20px; height: 20px; margin-top: 15px; margin-left: 15px"
+                                                         required="#{requestMainModel.selectedUserGraphics.a08_00_09_00}">
+                                    <a4j:ajax event="change" render="graphicPanel"/>
+                                </h:selectBooleanCheckbox>
+                                <p style="padding: 0;margin: 0px; font-weight: 700; color: white; line-height: 50px; float: left; padding-left: 5px;">08:00 - 09:00</p>
+                            </div>
+                            <div class="cube"
+                                 style="background-color: #{requestMainModel.selectedUserGraphics.a09_00_10_00 ? 'red' : 'green'}; margin-top: 5px;">
+                                <h:selectBooleanCheckbox value="#{requestMainModel.selectedUserGraphics.a09_00_10_00}"
+                                                         style="float:left;;width: 20px; height: 20px; margin-top: 15px; margin-left: 15px"
+                                                         required="#{requestMainModel.selectedUserGraphics.a09_00_10_00}">
+                                    <a4j:ajax event="change" render="graphicPanel"/>
+                                </h:selectBooleanCheckbox>
+                                <p style="padding: 0;margin: 0px; font-weight: 700; color: white; line-height: 50px; float: left; padding-left: 5px;">09:00 - 10:00</p>
+                            </div>
+                            <div class="cube"
+                                 style="background-color: #{requestMainModel.selectedUserGraphics.a10_00_11_00 ? 'red' : 'green'}; margin-top: 5px;">
+                                <h:selectBooleanCheckbox value="#{requestMainModel.selectedUserGraphics.a10_00_11_00}"
+                                                         style="float:left;;width: 20px; height: 20px; margin-top: 15px; margin-left: 15px"
+                                                         required="#{requestMainModel.selectedUserGraphics.a10_00_11_00}">
+                                    <a4j:ajax event="change" render="graphicPanel"/>
+                                </h:selectBooleanCheckbox>
+                                <p style="padding: 0;margin: 0px; font-weight: 700; color: white; line-height: 50px; float: left; padding-left: 5px;">10:00 - 11:00</p>
+                            </div>
+                            <div class="cube"
+                                 style="background-color: #{requestMainModel.selectedUserGraphics.a11_00_12_00 ? 'red' : 'green'}; margin-top: 5px;">
+                                <h:selectBooleanCheckbox value="#{requestMainModel.selectedUserGraphics.a11_00_12_00}"
+                                                         style="float:left;;width: 20px; height: 20px; margin-top: 15px; margin-left: 15px"
+                                                         required="#{requestMainModel.selectedUserGraphics.a11_00_12_00}">
+                                    <a4j:ajax event="change" render="graphicPanel"/>
+                                </h:selectBooleanCheckbox>
+                                <p style="padding: 0;margin: 0px; font-weight: 700; color: white; line-height: 50px; float: left; padding-left: 5px;">11:00 - 12:00</p>
+                            </div>
+                            <div class="cube"
+                                 style="background-color: #{requestMainModel.selectedUserGraphics.a12_00_13_00 ? 'red' : 'green'}; margin-top: 5px;">
+                                <h:selectBooleanCheckbox value="#{requestMainModel.selectedUserGraphics.a12_00_13_00}"
+                                                         style="float:left;;width: 20px; height: 20px; margin-top: 15px; margin-left: 15px"
+                                                         required="#{requestMainModel.selectedUserGraphics.a12_00_13_00}">
+                                    <a4j:ajax event="change" render="graphicPanel"/>
+                                </h:selectBooleanCheckbox>
+                                <p style="padding: 0;margin: 0px; font-weight: 700; color: white; line-height: 50px; float: left; padding-left: 5px;">12:00 - 13:00</p>
+                            </div>
+                            <div class="cube"
+                                 style="background-color: #{requestMainModel.selectedUserGraphics.a13_00_14_00 ? 'red' : 'green'}; margin-top: 5px;">
+                                <h:selectBooleanCheckbox value="#{requestMainModel.selectedUserGraphics.a13_00_14_00}"
+                                                         style="float:left;;width: 20px; height: 20px; margin-top: 15px; margin-left: 15px"
+                                                         required="#{requestMainModel.selectedUserGraphics.a13_00_14_00}">
+                                    <a4j:ajax event="change" render="graphicPanel"/>
+                                </h:selectBooleanCheckbox>
+                                <p style="padding: 0;margin: 0px; font-weight: 700; color: white; line-height: 50px; float: left; padding-left: 5px;">13:00 - 14:00</p>
+                            </div>
+                            <div class="cube"
+                                 style="background-color: #{requestMainModel.selectedUserGraphics.a14_00_15_00 ? 'red' : 'green'}; margin-top: 5px;">
+                                <h:selectBooleanCheckbox value="#{requestMainModel.selectedUserGraphics.a14_00_15_00}"
+                                                         style="float:left;;width: 20px; height: 20px; margin-top: 15px; margin-left: 15px"
+                                                         required="#{requestMainModel.selectedUserGraphics.a14_00_15_00}">
+                                    <a4j:ajax event="change" render="graphicPanel"/>
+                                </h:selectBooleanCheckbox>
+                                <p style="padding: 0;margin: 0px; font-weight: 700; color: white; line-height: 50px; float: left; padding-left: 5px;">14:00 - 15:00</p>
+                            </div>
+                            <div class="cube"
+                                 style="background-color: #{requestMainModel.selectedUserGraphics.a15_00_16_00 ? 'red' : 'green'}; margin-top: 5px;">
+                                <h:selectBooleanCheckbox value="#{requestMainModel.selectedUserGraphics.a15_00_16_00}"
+                                                         style="float:left;;width: 20px; height: 20px; margin-top: 15px; margin-left: 15px"
+                                                         required="#{requestMainModel.selectedUserGraphics.a15_00_16_00}">
+                                    <a4j:ajax event="change" render="graphicPanel"/>
+                                </h:selectBooleanCheckbox>
+                                <p style="padding: 0;margin: 0px; font-weight: 700; color: white; line-height: 50px; float: left; padding-left: 5px;">15:00 - 16:00</p>
+                            </div>
+                            <div class="cube"
+                                 style="background-color: #{requestMainModel.selectedUserGraphics.a16_00_17_00 ? 'red' : 'green'}; margin-top: 5px;">
+                                <h:selectBooleanCheckbox value="#{requestMainModel.selectedUserGraphics.a16_00_17_00}"
+                                                         style="float:left;;width: 20px; height: 20px; margin-top: 15px; margin-left: 15px"
+                                                         required="#{requestMainModel.selectedUserGraphics.a16_00_17_00}">
+                                    <a4j:ajax event="change" render="graphicPanel"/>
+                                </h:selectBooleanCheckbox>
+                                <p style="padding: 0;margin: 0px; font-weight: 700; color: white; line-height: 50px; float: left; padding-left: 5px;">16:00 - 17:00</p>
+                            </div>
+                            <div class="cube"
+                                 style="background-color: #{requestMainModel.selectedUserGraphics.a17_00_18_00 ? 'red' : 'green'}; margin-top: 5px;">
+                                <h:selectBooleanCheckbox value="#{requestMainModel.selectedUserGraphics.a17_00_18_00}"
+                                                         style="float:left;;width: 20px; height: 20px; margin-top: 15px; margin-left: 15px"
+                                                         required="#{requestMainModel.selectedUserGraphics.a17_00_18_00}">
+                                    <a4j:ajax event="change" render="graphicPanel"/>
+                                </h:selectBooleanCheckbox>
+                                <p style="padding: 0;margin: 0px; font-weight: 700; color: white; line-height: 50px; float: left; padding-left: 5px;">17:00 - 18:00</p>
+                            </div>
+                            <div class="cube"
+                                 style="background-color: #{requestMainModel.selectedUserGraphics.a18_00_19_00 ? 'red' : 'green'}; margin-top: 5px;">
+                                <h:selectBooleanCheckbox value="#{requestMainModel.selectedUserGraphics.a18_00_19_00}"
+                                                         style="float:left;;width: 20px; height: 20px; margin-top: 15px; margin-left: 15px"
+                                                         required="#{requestMainModel.selectedUserGraphics.a18_00_19_00}">
+                                    <a4j:ajax event="change" render="graphicPanel"/>
+                                </h:selectBooleanCheckbox>
+                                <p style="padding: 0;margin: 0px; font-weight: 700; color: white; line-height: 50px; float: left; padding-left: 5px;">18:00 - 19:00</p>
+                            </div>
+                            <div class="cube"
+                                 style="background-color: #{requestMainModel.selectedUserGraphics.a19_00_20_00 ? 'red' : 'green'}; margin-top: 5px;">
+                                <h:selectBooleanCheckbox value="#{requestMainModel.selectedUserGraphics.a19_00_20_00}"
+                                                         style="float:left;;width: 20px; height: 20px; margin-top: 15px; margin-left: 15px"
+                                                         required="#{requestMainModel.selectedUserGraphics.a19_00_20_00}">
+                                    <a4j:ajax event="change" render="graphicPanel"/>
+                                </h:selectBooleanCheckbox>
+                                <p style="padding: 0;margin: 0px; font-weight: 700; color: white; line-height: 50px; float: left; padding-left: 5px;">19:00 - 20:00</p>
+                            </div>
+                            <div class="cube"
+                                 style="background-color: #{requestMainModel.selectedUserGraphics.a20_00_21_00 ? 'red' : 'green'}; margin-top: 5px;">
+                                <h:selectBooleanCheckbox value="#{requestMainModel.selectedUserGraphics.a20_00_21_00}"
+                                                         style="float:left;;width: 20px; height: 20px; margin-top: 15px; margin-left: 15px"
+                                                         required="#{requestMainModel.selectedUserGraphics.a20_00_21_00}">
+                                    <a4j:ajax event="change" render="graphicPanel"/>
+                                </h:selectBooleanCheckbox>
+                                <p style="padding: 0;margin: 0px; font-weight: 700; color: white; line-height: 50px; float: left; padding-left: 5px;">20:00 - 21:00</p>
+                            </div>
+                            <div class="cube"
+                                 style="background-color: #{requestMainModel.selectedUserGraphics.a21_00_22_00 ? 'red' : 'green'}; margin-top: 5px;">
+                                <h:selectBooleanCheckbox value="#{requestMainModel.selectedUserGraphics.a21_00_22_00}"
+                                                         style="float:left;;width: 20px; height: 20px; margin-top: 15px; margin-left: 15px"
+                                                         required="#{requestMainModel.selectedUserGraphics.a21_00_22_00}">
+                                    <a4j:ajax event="change" render="graphicPanel"/>
+                                </h:selectBooleanCheckbox>
+                                <p style="padding: 0;margin: 0px; font-weight: 700; color: white; line-height: 50px; float: left; padding-left: 5px;">21:00 - 22:00</p>
+                            </div>
+                            <div class="cube"
+                                 style="background-color: #{requestMainModel.selectedUserGraphics.a22_00_23_00 ? 'red' : 'green'}; margin-top: 5px;">
+                                <h:selectBooleanCheckbox value="#{requestMainModel.selectedUserGraphics.a22_00_23_00}"
+                                                         style="float:left;;width: 20px; height: 20px; margin-top: 15px; margin-left: 15px"
+                                                         required="#{requestMainModel.selectedUserGraphics.a22_00_23_00}">
+                                    <a4j:ajax event="change" render="graphicPanel"/>
+                                </h:selectBooleanCheckbox>
+                                <p style="padding: 0;margin: 0px; font-weight: 700; color: white; line-height: 50px; float: left; padding-left: 5px;">22:00 - 23:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a4j:jsFunction name="send" action="#{requestMainModel.send()}"/>
+                </a4j:outputPanel>
+            </a4j:outputPanel>
+        </h:form>
+    </ui:define>
+    <ui:define name="addContent">
+
+    </ui:define>
+</ui:composition>

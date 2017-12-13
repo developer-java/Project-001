@@ -12,17 +12,14 @@
         <div class="background-image"></div>
         <div class="login">
             <div class="left-block">
-                <div class="container">
+                <div class="my-container">
                     <div class="header">
                         <center>
                             <div class="logo">
                                 <table style="">
                                     <tr style="height: 100%">
-                                        <td width="30%">
-                                            <img src="resources/img/logo.png" alt="IMG" width="100%"/>
-                                        </td>
                                         <td width="70%">
-                                            <p>Hello my Friend! My name System Brain!</p>
+                                            <p>А тут Тайтл и Картинка</p>
                                         </td>
                                     </tr>
                                 </table>
@@ -34,42 +31,37 @@
                             <center>
                                 <h1>Добро пожаловать </h1>
                                 <h3 style="color: #191414">
-                                    в систему онлайн подачи заявлении
+                                    тут должен быть красивый текст
                                 </h3>
                             </center>
                             <a4j:outputPanel ajaxRendered="true">
-                                    <table width="100%">
-                                        <tr>
-                                            <td width="20%">
-                                                <h:outputText value="ИИН"/>
-                                            </td>
-                                            <td width="80%">
-                                                <h:inputText id="login" styleClass="text" value="#{autorizationModel.login}"/>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <h:outputText value="Пароль"/>
-                                            </td>
-                                            <td>
-                                                <h:inputSecret id="password" styleClass="text" value="#{autorizationModel.password}"/>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">
-                                                <rich:message for="signBtn" styleClass="error"/>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a4j:commandButton id="signByEP" styleClass="btn btn-success" value="#{strings['signByEP']}" action="#signByEP"/>
-                                            </td>
-                                            <td>
-                                                <a4j:commandButton id="signBtn" styleClass="text" value="#{strings['autorize']}" action="#{autorizationModel.doSign}"/>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                <table width="100%">
+                                    <tr>
+                                        <td width="80%">
+                                            <h:inputText id="login" styleClass="text"
+                                                         value="#{autorizationModel.login}"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h:inputSecret id="password" styleClass="text"
+                                                           value="#{autorizationModel.password}"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <rich:message for="signBtn" styleClass="error"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="80%">
+                                            <a4j:commandButton id="signBtn" styleClass="btn btn-error"
+                                                               value="#{strings['autorize']}"
+                                                               action="#{autorizationModel.doSign}"
+                                                               style="width: 80%; margin-top: 5px;margin-left: 10%;"/>
+                                        </td>
+                                    </tr>
+                                </table>
                             </a4j:outputPanel>
                         </h:form>
                     </div>

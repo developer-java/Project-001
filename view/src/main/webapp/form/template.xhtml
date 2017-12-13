@@ -9,36 +9,43 @@
         <f:event type="preRenderView" listener="#{autorizationModel.goToService}"/>
     </ui:define>
     <ui:define name="content">
-        <h:form>
-            <div class="main-header">
-                <a href="/">
-                    <div class="logo" >
-                        <img src="/resources/img/logo.png" alt="IMG" height="100%"/>
-                    </div>
-                </a>
-                <a4j:outputPanel styleClass="rigth-block exit" style="width: 100px" ajaxRendered="true">
-                    <center>
-                        <a4j:commandButton action="#{autorizationModel.logOut}" value="Выйти" styleClass="logOutBtn" style="background-color: rgba(0,0,0,0); color:white; font-weight: 600;border:none;background-image:none;font-size: 16px;"/>
-                    </center>
-                </a4j:outputPanel>
-                <div class="rigth-block" onclick="showModalUser">
-                    <center>
-                        <p>
-                            #{autorizationModel.user.getFIO()}
-                        </p>
-                    </center>
-                    <div class="modal-user">
+        <style>
+            .logOutBtn:hover {
+                background-color: rgba(255, 255, 255, .3);
+            }
 
-                    </div>
+            .logOutBtn:active {
+                background-color: rgba(255, 255, 255, .5);
+            }
+        </style>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar navbar-header">
+                    <a class="navbar-brand" href="http://localhost:8080">
+                        Главная
+                    </a>
                 </div>
-
+                <ul class="nav navbar-nav navbar-right" style="margin-right: 100px">
+                    <li class="logLi">
+                        <h:form id="form">
+                            <a4j:commandButton action="#{autorizationModel.logOut}" value="Выйти" styleClass="logOutBtn" style="background-color: rgba(255,255,255,0);color:white; padding-left: 16px; padding-right: 16px; font-weight: 600;border:none;background-image:none;font-size: 14px;"/>
+                        </h:form>
+                    </li>
+                </ul>
             </div>
-            <center>
-                <div class="main-content">
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col">
                     <ui:insert name="main-content"/>
                 </div>
-            </center>
-        </h:form>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+
+                </div>
+            </div>
+        </div>
+        <ui:insert name="addContent"/>
     </ui:define>
-    <ui:insert name="addContent"/>
 </ui:composition>
