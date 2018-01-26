@@ -1,0 +1,62 @@
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://common.dip.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="LoginService" targetNamespace="http://common.dip.com/">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://common.dip.com/" elementFormDefault="unqualified" targetNamespace="http://common.dip.com/" version="1.0">
+            <xs:element name="doLogin" type="tns:doLogin"/>
+            <xs:element name="doLoginResponse" type="tns:doLoginResponse"/>
+            <xs:complexType name="doLogin">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="user" type="tns:user"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="user">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="address" type="xs:string"/>
+                    <xs:element minOccurs="0" name="facultet" type="xs:string"/>
+                    <xs:element minOccurs="0" name="firstname" type="xs:string"/>
+                    <xs:element minOccurs="0" name="group" type="xs:string"/>
+                    <xs:element minOccurs="0" name="iin" type="xs:string"/>
+                    <xs:element minOccurs="0" name="kafedra" type="xs:string"/>
+                    <xs:element minOccurs="0" name="lastname" type="xs:string"/>
+                    <xs:element minOccurs="0" name="login" type="xs:string"/>
+                    <xs:element minOccurs="0" name="password" type="xs:string"/>
+                    <xs:element minOccurs="0" name="patronmyc" type="xs:string"/>
+                    <xs:element minOccurs="0" name="student" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="doLoginResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:user"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="doLoginResponse">
+        <wsdl:part element="tns:doLoginResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="doLogin">
+        <wsdl:part element="tns:doLogin" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="LoginService">
+        <wsdl:operation name="doLogin">
+            <wsdl:input message="tns:doLogin" name="doLogin"></wsdl:input>
+            <wsdl:output message="tns:doLoginResponse" name="doLoginResponse"></wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="LoginServiceSoapBinding" type="tns:LoginService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="doLogin">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="doLogin">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="doLoginResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="LoginService">
+        <wsdl:port binding="tns:LoginServiceSoapBinding" name="ServicePort">
+            <soap:address location="http://localhost:8080/WS/LoginService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
